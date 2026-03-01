@@ -1,7 +1,6 @@
 # Jenna Gaff
 Applied AI, Product Management &amp; Systems Thinking
 
-I operate at the intersection of engineering, AI systems, and product execution.  
 Focused on translating complex technical capabilities into real-world impact.
 
 ## Current Focus
