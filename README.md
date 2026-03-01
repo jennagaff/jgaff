@@ -1,4 +1,4 @@
-# jgaff
+# Jenna Gaff
 Applied AI, product strategy &amp; systems thinking artefact
 
 I operate at the intersection of engineering, AI systems, and product execution.  
