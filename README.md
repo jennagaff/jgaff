@@ -1,7 +1,7 @@
 # Jenna Gaff
-Applied AI, Product Management &amp; Systems Thinking
+Applied AI, Product Management &amp; Systems
 
-Focused on translating complex technical capabilities into real-world impact.
+I help entities capture emerging technical capabilities turn them into 'oh wow that was simple' user experiences with a 'heck yes' from C-suite.
 
 ## Current Focus
 - Agentic AI systems from workflow automation through to agent orchestration
