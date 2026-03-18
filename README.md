@@ -6,7 +6,7 @@ I help entities capture emerging technical capabilities, turn them into 'oh wow'
 ## Current Focus
 - Agentic AI systems from workflow automation through to agent orchestration
 - Thinking through AGI readiness from a product POV
-- Digital twins across the real estate value chain
+- Digital twins 
 - Technical portfolio leadership
 
 ## Selected Work
