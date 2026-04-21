@@ -1,0 +1,122 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Contact {
+  id          String        @id @default(cuid())
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  name        String
+  email       String?
+  phone       String?
+  company     String?
+  title       String?
+  linkedinUrl String?
+  source      ContactSource @default(MANUAL)
+  segment     Segment       @default(GENERAL)
+  stage       Stage         @default(LEAD)
+
+  notes         Note[]
+  activities    Activity[]
+  memoResponses MemoResponse[]
+}
+
+model Note {
+  id        String     @id @default(cuid())
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  title     String?
+  content   String
+  source    NoteSource @default(MANUAL)
+
+  contactId String?
+  contact   Contact? @relation(fields: [contactId], references: [id])
+}
+
+model Activity {
+  id        String       @id @default(cuid())
+  createdAt DateTime     @default(now())
+  type      ActivityType
+  date      DateTime
+  subject   String
+  body      String?
+
+  contactId String
+  contact   Contact @relation(fields: [contactId], references: [id])
+}
+
+model Memo {
+  id        String     @id @default(cuid())
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  title     String
+  content   String
+  status    MemoStatus @default(DRAFT)
+  quarter   String
+  dueDate   DateTime
+  sentAt    DateTime?
+
+  responses MemoResponse[]
+}
+
+model MemoResponse {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  content   String
+
+  contactId String
+  contact   Contact @relation(fields: [contactId], references: [id])
+  memoId    String
+  memo      Memo    @relation(fields: [memoId], references: [id])
+}
+
+model Setting {
+  key   String @id
+  value String
+}
+
+enum Segment {
+  DREAM_50
+  INNER_CIRCLE
+  GENERAL
+}
+
+enum Stage {
+  LEAD
+  OPPORTUNITY
+  CLOSED_WON
+  CLOSED_LOST
+}
+
+enum NoteSource {
+  GRANOLA
+  EMAIL
+  WHATSAPP
+  SMS
+  MANUAL
+}
+
+enum ActivityType {
+  EMAIL
+  MEETING
+  CALL
+  WHATSAPP
+  TEXT
+}
+
+enum MemoStatus {
+  DRAFT
+  SENT
+  ARCHIVED
+}
+
+enum ContactSource {
+  LINKEDIN
+  MANUAL
+  HAPPENSTANCE
+}
